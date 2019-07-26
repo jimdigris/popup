@@ -4,6 +4,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 }
+
 .popup_wrapper {
 	display: none;
 	width: 100%;
@@ -16,7 +17,8 @@ html, body {
 	justify-content: center;
 	align-items: center;
 }
-.popup_body {
+
+.popup_wrapper .popup_body {
 	display: none;
 	width: 600px;
     height: auto;
@@ -29,11 +31,15 @@ html, body {
 	flex-direction: column;
 }
 
-.popup_active {
+.popup_wrapper.popup_active {
 	display: flex;
 }
 
-.popup_head {
+.popup_wrapper .popup_body.popup_active {
+	display: flex;
+}
+
+.popup_wrapper .popup_head {
 	height: auto;
 	min-height: 40px;
 	width: 100%;
@@ -45,16 +51,16 @@ html, body {
     text-transform: uppercase;	
 }
 
-.popup_close {
+.popup_wrapper .popup_close {
 	font-size: 28px;
     font-weight: bold;
     position: absolute;
     right: 10px;
-    top: 5px;
+    top: 3px;
 	cursor: pointer;
 }
 
-.popup_content {
+.popup_wrapper .popup_content {
 	height: 100%;
 	width: 100%;
 	margin-top: 20px;
@@ -66,14 +72,36 @@ html, body {
 	overflow-wrap: break-word;
 }
 
-
 @media (max-width: 640px) {
-	.popup_body {
+	.popup_wrapper .popup_body {
 		width: 80%;	
 	}
 	
-	.popup_content {
+	.popup_wrapper .popup_content {
 		margin-top: 10px;
 		margin-bottom: 10px;
+	}
+}
+
+@media (max-height: 300px) {
+	.popup_wrapper .popup_body {
+		min-height: auto;
+	}
+	
+	.popup_wrapper .popup_head {
+		padding: 6px 20px;
+		font-size: 14px;
+		min-height: 26px;
+	}
+	
+	.popup_wrapper .popup_close {
+		font-size: 18px;
+		top: 3px;	
+	}
+	
+	.popup_wrapper .popup_content {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		font-size: 14px;
 	}
 }
